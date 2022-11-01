@@ -1,16 +1,11 @@
-#include <iostream>
-#include <string>
-using namespace std;
-int main() {
-    cout << "Hello world!" << endl;
-
-    char ch = 'a';
-    string str = "some string";
-    float a = 2.3, b = 3.2;
-
-    cout << ch << endl;
-    cout << str << endl;
-    cout << a + b << endl;
-
-    return 0;
+#include <drogon/drogon.h>
+using namespace drogon;
+int main()
+{
+    app().setLogPath("./")
+        .setLogLevel(trantor::Logger::kWarn)
+        .addListener("0.0.0.0", 8812)
+        .setThreadNum(16)
+        .enableRunAsDaemon()
+        .run();
 }
